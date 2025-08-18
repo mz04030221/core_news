@@ -6,9 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>core news</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="{% static 'js/main.js' %}" defer></script>
     </head>
     <body>
-        {% block content %}
-        {% endblock content %}
+        <header>
+            <div class="time"></div>
+            <h1>core news</h1>
+            <div class="weather"></div>
+        </header>
+        <nav>
+            <div class="pages">
+                <a href="#">Home</a><span class="divider">|</span><a href="#">About</a>
+            </div>
+            <div class="account">
+                <a href="#">Log In</a>
+            </div>
+        </nav>
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
     </body>
 </html>

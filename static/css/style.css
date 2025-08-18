@@ -18,5 +18,50 @@ html {
 }
 
 body {
+  max-width: 1440px;
+  margin: 0 auto;
   background-color: var(--color-background);
+}
+
+body > * {
+  margin: 0 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 2px solid var(--color-foreground);
+}
+
+header h1 {
+  line-height: 1.5rem;
+  margin-top: -7px;
+}
+
+header > div {
+  font-weight: 600;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 5px solid var(--color-foreground);
+}
+
+nav a {
+  color: var(--color-foreground);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav .divider {
+  color: var(--color-foreground);
+  opacity: 25%;
+  margin: 0 10px;
 }
