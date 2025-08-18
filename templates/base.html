@@ -16,7 +16,9 @@
         </header>
         <nav>
             <div class="pages">
-                <a href="#">Home</a><span class="divider">|</span><a href="#">About</a>
+                <a href="{% url 'home' %}">Home</a>
+                <span class="divider">|</span>
+                <a href="{% url 'about' %}">About</a>
             </div>
             <div class="account">
                 <a href="#">Log In</a>
@@ -26,5 +28,8 @@
             {% block content %}
             {% endblock content %}
         </main>
+        <footer>
+            All the news you need.
+        </footer>
     </body>
 </html>

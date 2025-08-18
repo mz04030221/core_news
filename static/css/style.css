@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&family=Space+Grotesk:wght@300..700&display=swap");
 
 *,
 *::before,
@@ -18,6 +19,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 100vh;
   max-width: 1440px;
   margin: 0 auto;
   background-color: var(--color-background);
@@ -64,4 +69,16 @@ nav .divider {
   color: var(--color-foreground);
   opacity: 25%;
   margin: 0 10px;
+}
+
+footer {
+  padding: 20px 0;
+  border-top: 5px solid var(--color-foreground);
+  font-family: "Playwrite NZ";
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  padding: 20px 0;
 }
