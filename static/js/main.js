@@ -12,9 +12,9 @@ setInterval(() => {
   timeDiv.textContent = `${hours}:${minutes}`;
 });
 
-fetch(WEATHER_API_CALL_URL)
-  .then(async (response) => {
-    const json = await response.json();
-    weatherDiv.textContent = `${json.current.condition.text}, ${json.current.temp_c} °C`;
-  })
-  .catch((error) => console.log(`ERROR GETTING WEATHER: ${error}`));
+// fetch(WEATHER_API_CALL_URL)
+//   .then(async (response) => {
+//     const json = await response.json();
+//     weatherDiv.textContent = `${json.current.condition.text}, ${json.current.temp_c} °C`;
+//   })
+//   .catch((error) => console.log(`ERROR GETTING WEATHER: ${error}`));
