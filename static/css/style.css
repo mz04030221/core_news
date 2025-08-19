@@ -61,8 +61,17 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover {
+nav a:hover,
+nav form button:hover {
   text-decoration: underline;
+}
+
+nav form button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: "Space Grotesk";
 }
 
 nav .divider {
@@ -106,6 +115,7 @@ p {
   font-size: 0.8rem;
   color: var(--color-foreground);
   opacity: 50%;
+  margin: 0;
 }
 
 .issue .issue-content {
@@ -143,4 +153,8 @@ p {
 
 .issue .article h3 {
   margin-bottom: 10px;
+}
+
+.issue .article p {
+  margin-bottom: 0;
 }

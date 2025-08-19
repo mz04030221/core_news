@@ -4,7 +4,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>core news</title>
+        <title>
+            {% block title %}
+                core news
+            {% endblock title %}
+        </title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <script src="{% static 'js/main.js' %}" defer></script>
     </head>
@@ -21,7 +25,16 @@
                 <a href="{% url 'about' %}">About</a>
             </div>
             <div class="account">
-                <a href="#">Log In</a>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Log Out</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}">Log In</a>
+                    <span class="divider">|</span>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                {% endif %}
             </div>
         </nav>
         <main>
