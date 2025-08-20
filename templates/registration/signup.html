@@ -3,8 +3,18 @@
     Sign Up — core news
 {% endblock title %}
 {% block content %}
+    <h2>Sign Up</h2>
     <form method="post">
-        {% csrf_token %} {{ form }}
-        <button type="submit">Log In</button>
+        {% csrf_token %}
+        <div class="non-field-errors">{{ form.non_field_errors }}</div>
+        {% for field in form.visible_fields %}
+            <div class="field-container">
+                {{ field.label_tag }}
+                {{ field }}
+                <div class="field-error-text">{{ field.errors }}</div>
+                <div class="field-help-text">{{ field.help_text }}</div>
+            </div>
+        {% endfor %}
+        <button type="submit">Sign Up</button>
     </form>
 {% endblock content %}

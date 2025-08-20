@@ -96,6 +96,38 @@ p {
   margin: 10px 0;
 }
 
+form {
+  padding: 20px 0;
+}
+
+input {
+  height: 48px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: "Space Grotesk";
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+button {
+  height: 48px;
+  min-width: 96px;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border: none;
+  font-family: "Space Grotesk";
+  font-size: 1rem;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 90%;
+}
+
 /* HOME */
 .issue {
   display: flex;
@@ -157,4 +189,33 @@ p {
 
 .issue .article p {
   margin-bottom: 0;
+}
+
+/* Forms */
+form .field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+form .field-help-text,
+form .field-error-text,
+form .non-field-errors {
+  font-size: 0.8rem;
+  opacity: 80%;
+}
+
+form .field-help-text ul,
+form .field-error-text ul,
+form .non-field-errors ul {
+  padding-left: 15px;
+}
+
+form .field-error-text {
+  color: red;
+}
+
+form button {
+  width: 100%;
 }
