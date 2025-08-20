@@ -56,8 +56,13 @@ nav {
   border-bottom: 5px solid var(--color-foreground);
 }
 
-nav a {
+nav form {
+  padding: 0;
   color: var(--color-foreground);
+}
+
+nav a {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -67,11 +72,13 @@ nav form button:hover {
 }
 
 nav form button {
+  all: unset;
   background-color: transparent;
   border: none;
   font-size: 1rem;
   cursor: pointer;
   font-family: "Space Grotesk";
+  color: inherit;
 }
 
 nav .divider {
