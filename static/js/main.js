@@ -10,7 +10,7 @@ setInterval(() => {
   const minutes = now.getMinutes().toString().padStart(2, "0");
 
   timeDiv.textContent = `${hours}:${minutes}`;
-});
+}, 1000);
 
 // fetch(WEATHER_API_CALL_URL)
 //   .then(async (response) => {
