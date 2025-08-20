@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+    Delete issue — core news
+{% endblock title %}
+{% block content %}
+    <h2>Delete issue</h2>
+    <form class="issue-delete-form" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete the following issue:</p>
+        <div class="issue-detail-container">
+            <div class="issue-cover"></div>
+            <div class="issue-detail-info">
+                <div class="issue-detail-heading">
+                    <h3>{{ object.title }}</h3>
+                </div>
+                <p>Issue: {{ object.pk }}</p>
+                <p>Edition: {{ object.edition|title }}</p>
+                <p>Editor: {{ object.editor.first_name }} {{ object.editor.last_name }}</p>
+            </div>
+        </div>
+        <button class="destructive" type="submit">Delete</button>
+    </form>
+{% endblock content %}

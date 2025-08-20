@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ user.first_name }} {{ user.last_name }} ({{ user.username }}) — core news
+{% endblock title %}
+{% block content %}
+    <div class="profile-heading">
+        <div class="profile-name">
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <span class="username">({{ user.username }})</span>
+        </div>
+        <div class="profile-actions">
+            <a href="{% url 'password_change' %}">Change Password</a>
+        </div>
+    </div>
+    <div class="profile-info">
+        <p>
+            <span class="info-type">Email:</span>
+            {{ user.email }}
+        </p>
+        <span class="separator">|</span>
+        <p>
+            <span class="info-type">Role:</span>
+            {{ user.role|title }}
+        </p>
+        <span class="separator">|</span>
+        <p>
+            <span class="info-type">Status:</span>
+            {% if user.verified %}
+                Verified
+            {% else %}
+                Unverified
+            {% endif %}
+        </p>
+    </div>
+    <div class="article-list-container">
+        {% for article in articles reversed %}
+            <div class="article-list-item">
+                <div class="article-heading">
+                    <h3>
+                        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+                    </h3>
+                    <div class="article-actions">
+                        <a href="{% url 'article_delete' article.pk %}">Delete</a>
+                        <a href="{% url 'article_edit' article.pk %}">Edit</a>
+                    </div>
+                </div>
+                <p>{{ article.subtitle }}</p>
+                <p class="article-info">
+                    Issue: <a href="{% url 'issue_detail' article.issue.pk %}">{{ article.issue.title }} ({{ article.issue.pk }})</a>
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

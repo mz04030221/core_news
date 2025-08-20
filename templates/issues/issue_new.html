@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    Create new issue — core news
+{% endblock title %}
+{% block content %}
+    <h2>Create new issue</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="non-field-errors">{{ form.non_field_errors }}</div>
+        {% for field in form.visible_fields %}
+            <div class="field-container">
+                {{ field.label_tag }}
+                {{ field }}
+                <div class="field-error-text">{{ field.errors }}</div>
+                <div class="field-help-text">{{ field.help_text }}</div>
+            </div>
+        {% endfor %}
+        <button type="submit">Create</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    Issues — core news
+{% endblock title %}
+{% block content %}
+    <h2>Issues</h2>
+    <div class="issue-list">
+        {% for issue in issue_list reversed %}
+            <div class="issue-list-item">
+                <div class="issue-cover"></div>
+                <h3>
+                    <a href="{{ issue.get_absolute_url }}">{{ issue.title }}</a>
+                </h3>
+                <span>Issue: {{ issue.pk }}</span>
+                <span>—</span>
+                <span>Editon: {{ issue.edition|title }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

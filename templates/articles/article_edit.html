@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+    Edit article — core news
+{% endblock title %}
+{% block content %}
+    <h2>Edit article</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            <div class="field-container">
+                {{ field.label_tag }} {{ field }}
+                <div class="field-error-text">{{ field.errors }}</div>
+                <div class="field-help-text">{{ field.help_text }}</div>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock content %}
