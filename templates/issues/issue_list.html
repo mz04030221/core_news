@@ -1,20 +1,15 @@
 {% extends "base.html" %}
 {% block title %}
-    Issues — core news
+    Issues
 {% endblock title %}
 {% block content %}
-    <h2>Issues</h2>
-    <div class="issue-list">
-        {% for issue in issue_list reversed %}
-            <div class="issue-list-item">
-                <div class="issue-cover"></div>
-                <h3>
-                    <a href="{{ issue.get_absolute_url }}">{{ issue.title }}</a>
-                </h3>
-                <span>Issue: {{ issue.pk }}</span>
-                <span>—</span>
-                <span>Editon: {{ issue.edition|title }}</span>
-            </div>
-        {% endfor %}
-    </div>
+    <h2>Latest Issues</h2>
+    {% for issue in issue_list %}
+        <h3>
+            <a href="{{ issue.get_absolute_url }}">{{ issue.title }}</a>
+        </h3>
+        <p>Issue: {{ issue.pk }}</p>
+        <p>Editon: {{ issue.edition|title }}</p>
+        <p>Editor: {{ issue.editor.first_name }} {{ issue.editor.last_name }}</p>
+    {% endfor %}
 {% endblock content %}

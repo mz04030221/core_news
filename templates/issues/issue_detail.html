@@ -3,32 +3,10 @@
     {{ object.title }}
 {% endblock title %}
 {% block content %}
-    <div class="issue-detail-container">
-        <div class="issue-cover"></div>
-        <div class="issue-detail-info">
-            <div class="issue-detail-heading">
-                <h2>{{ object.title }}</h2>
-                {% if user.is_authenticated and user.pk == request.user.pk %}
-                    <div class="issue-actions">
-                        <a href="{% url 'issue_delete' issue.pk %}">Delete</a>
-                        <a href="{% url 'issue_edit' issue.pk %}">Edit</a>
-                    </div>
-                {% endif %}
-            </div>
-            <p>Issue: {{ object.pk }}</p>
-            <p>Edition: {{ object.edition|title }}</p>
-            <p>Editor: {{ object.editor.first_name }} {{ object.editor.last_name }}</p>
-        </div>
-    </div>
-    <div class="article-list-container">
-        {% for article in articles %}
-            <div class="article-list-item">
-                <h3>
-                    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-                </h3>
-                <p>{{ article.subtitle }}</p>
-                <p class="article-info">Author: {{ article.author.first_name }} {{ article.author.last_name }}</p>
-            </div>
-        {% endfor %}
-    </div>
+    <h2>{{ object.title }}</h2>
+    <p>{{ object.pk }}</p>
+    <p>{{ object.edition|title }}</p>
+    <p>{{ object.editor }}</p>
+    <a href="{% url 'issue_edit' issue.pk %}">Edit</a>
+    <a href="{% url 'issue_delete' issue.pk %}">Delete</a>
 {% endblock content %}

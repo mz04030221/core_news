@@ -38,11 +38,15 @@ header {
   align-items: center;
   padding: 30px 0;
   border-bottom: 2px solid var(--color-foreground);
+  position: relative;
 }
 
 header h1 {
   line-height: 1.5rem;
   margin-top: -7px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 header > div {
@@ -54,9 +58,11 @@ nav {
   justify-content: space-between;
   padding: 20px 0;
   border-bottom: 5px solid var(--color-foreground);
+  position: relative;
 }
 
 nav form {
+  display: inline;
   padding: 0;
   color: var(--color-foreground);
 }
@@ -79,6 +85,12 @@ nav form button {
   cursor: pointer;
   font-family: "Space Grotesk";
   color: inherit;
+}
+
+nav .user {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 nav .divider {
@@ -107,11 +119,12 @@ form {
   padding: 20px 0;
 }
 
-input {
+input,
+select {
   height: 48px;
   padding: 10px;
   font-size: 1rem;
-  font-family: "Space Grotesk";
+  font-family: inherit;
 }
 
 label {
