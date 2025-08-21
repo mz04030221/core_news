@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "pages",
     "accounts",
     "issues",
+    "articles",
 ]
 
 MIDDLEWARE = [

@@ -1,18 +1,14 @@
 {% extends "base.html" %}
 {% block title %}
-    Delete article — core news
+    Delete article
 {% endblock title %}
 {% block content %}
     <h2>Delete article</h2>
-    <form class="article-delete-form" method="post">
+    <form method="post">
         <p>Are you sure you want to delete the following article:</p>
-        <h3>{{ article.title }}</h3>
-        <div class="article-info">
-            <p>{{ article.subtitle }}</p>
-            <p>
-                Author: {{ article.author.first_name }} {{ article.author.last_name }} — Issue: {{ article.issue.title }} ({{ article.issue.pk }})
-            </p>
-        </div>
-        <button class="destructive" type="submit">Delete</button>
+        <p>{{ article.title }}</p>
+        <p>{{ article.subtitle }}</p>
+        <p>Issue: {{ article.issue.title }} ({{ article.issue.pk }})</p>
+        <button type="submit">Delete</button>
     </form>
 {% endblock content %}

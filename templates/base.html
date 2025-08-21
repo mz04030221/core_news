@@ -25,14 +25,18 @@
                 <span class="divider">|</span>
                 <a href="{% url 'about' %}">About</a>
             </div>
-            {% if user.is_authenticated %}<div class="user">{{ user.first_name }} {{ user.last_name }}</div>{% endif %}
+            {% if user.is_authenticated %}
+                <div class="user">
+                    <a href="#">{{ user.first_name }} {{ user.last_name }}</a>
+                </div>
+            {% endif %}
             <div class="actions">
                 {% if user.is_authenticated %}
                     {% if user.role == "EDITOR" %}
                         <a href="{% url 'issue_new' %}">New Issue</a>
                         <span class="divider">|</span>
                     {% endif %}
-                    <a href="#">New Article</a>
+                    <a href="{% url 'article_new' %}">New Article</a>
                     <span class="divider">|</span>
                     <form action="{% url 'logout' %}" method="post">
                         {% csrf_token %}

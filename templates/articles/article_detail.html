@@ -1,27 +1,12 @@
 {% extends "base.html" %}
 {% block title %}
-    {{ object.title }} — core news
+    {{ object.title }}
 {% endblock title %}
 {% block content %}
-    <div class="article-detail-container">
-        <div class="article-detail-heading">
-            <h2>{{ object.title }}</h2>
-            {% if user.is_authenticated and object.author.pk == request.user.pk %}
-                <div class="article-actions">
-                    <a href="{% url 'article_delete' article.pk %}">Delete</a>
-                    <a href="{% url 'article_edit' article.pk %}">Edit</a>
-                </div>
-            {% endif %}
-        </div>
-        <p class="article-subtitle">{{ object.subtitle }}</p>
-        <div class="article-info">
-            <p>
-                Author: {{ object.author.first_name }} {{ object.author.last_name }} — Issue: <a href="{% url 'issue_detail' object.issue.pk %}">{{ object.issue.title }} ({{ object.issue.pk }})</a>
-            </p>
-            <p>{{ object.date }}</p>
-        </div>
-        <div class="article-body">
-            {% for paragraph in object.get_split_body %}<p>{{ paragraph }}</p>{% endfor %}
-        </div>
-    </div>
+    <h2>{{ object.title }}</h2>
+    <p>{{ object.subtitle }}</p>
+    <p>Author: {{ object.firt_name }} {{ object.last_name }}</p>
+    <p>Issue: {{ object.issue.title }} ({{ object.issue.pk }})</p>
+    <a href="{% url 'article_edit' article.pk %}">Edit</a>
+    <a href="{% url 'article_delete' article.pk %}">Delete</a>
 {% endblock content %}
