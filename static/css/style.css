@@ -164,6 +164,10 @@ button {
   cursor: pointer;
 }
 
+button.destructive {
+  background-color: crimson;
+}
+
 button:hover {
   opacity: 90%;
 }
@@ -173,6 +177,7 @@ button:hover {
   height: 250px;
   background-color: var(--color-foreground);
   opacity: 25%;
+  flex-shrink: 0;
 }
 
 /* HOME */
@@ -284,4 +289,51 @@ form button {
   font-family: "Playwrite NZ";
   font-size: 0.8rem;
   opacity: 50%;
+}
+
+/* Issue Detail */
+.issue-detail-container {
+  display: flex;
+  gap: 20px;
+}
+
+.issue-detail-container .issue-detail-info {
+  width: 100%;
+}
+
+.issue-detail-container h2 {
+  margin-bottom: 10px;
+}
+
+.issue-detail-container p {
+  font-family: "Playwrite NZ";
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 50%;
+}
+
+.issue-detail-container .issue-detail-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.issue-detail-heading .issue-actions a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
+.issue-detail-heading .issue-actions a:hover {
+  text-decoration: underline;
+}
+
+/* Issue Delete */
+.issue-delete-form {
+  padding: 0;
+}
+
+.issue-delete-form .issue-detail-container {
+  padding: 20px 0;
 }
