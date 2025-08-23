@@ -111,6 +111,21 @@ main {
   padding: 20px 0;
 }
 
+h2 {
+  margin-bottom: 15px;
+}
+
+h2 a,
+h3 a {
+  text-decoration: none;
+  color: var(--color-foreground);
+}
+
+h2 a:hover,
+h3 a:hover {
+  text-decoration: underline;
+}
+
 p {
   margin: 10px 0;
 }
@@ -153,18 +168,18 @@ button:hover {
   opacity: 90%;
 }
 
+.issue-cover {
+  width: 200px;
+  height: 250px;
+  background-color: var(--color-foreground);
+  opacity: 25%;
+}
+
 /* HOME */
 .issue {
   display: flex;
   margin: 20px 0;
   height: 250px;
-}
-
-.issue .cover {
-  width: 200px;
-  height: 250px;
-  background-color: var(--color-foreground);
-  opacity: 25%;
 }
 
 .issue .issue-info p {
@@ -243,4 +258,30 @@ form .field-error-text {
 
 form button {
   width: 100%;
+}
+
+/* Issue List */
+.issue-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.issue-list .issue-list-item {
+  max-width: 200px;
+}
+
+.issue-list .issue-list-item h3 {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+}
+
+.issue-list .issue-list-item span {
+  display: inline-block;
+  font-family: "Playwrite NZ";
+  font-size: 0.8rem;
+  opacity: 50%;
 }
