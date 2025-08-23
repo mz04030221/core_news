@@ -23,6 +23,10 @@
             <div class="pages">
                 <a href="{% url 'home' %}">Home</a>
                 <span class="divider">|</span>
+                <a href="{% url 'article_list' %}">Articles</a>
+                <span class="divider">|</span>
+                <a href="{% url 'issue_list' %}">Issues</a>
+                <span class="divider">|</span>
                 <a href="{% url 'about' %}">About</a>
             </div>
             {% if user.is_authenticated %}
