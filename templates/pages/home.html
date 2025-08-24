@@ -5,30 +5,70 @@
         <div class="issue-cover"></div>
         <div class="issue-content">
             <div class="actions">
-                <a href="#">Browse this issue</a>
-                <a href="#">Older issues</a>
+                <a href="{% url 'issue_detail' latest_daily_issue.issue.pk %}">Browse this issue</a>
+                <a href="{% url 'issue_list' %}">Other issues</a>
             </div>
             <div class="issue-info">
-                <p>Issue: 0624</p>
-                <p>The Rise and The Fall</p>
+                <p>{{ latest_daily_issue.issue.title }}</p>
+                <p>Issue: {{ latest_daily_issue.issue.pk }}</p>
             </div>
-            <div class="featured-articles">
-                <div class="article">
-                    <h3>
-                        <a href="#">Lorem Ipsum Dolor Sit</a>
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div>
-                <div class="article">
-                    <h3>
-                        <a href="#">Lorem Ipsum Dolor Sit</a>
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div>
+            <div class="latest-articles">
+                {% for article in latest_daily_issue.articles %}
+                    <div class="article">
+                        <h3>
+                            <a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a>
+                        </h3>
+                        <p>{{ article.subtitle }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <h2>Weekly</h2>
+    <div class="issue">
+        <div class="issue-cover"></div>
+        <div class="issue-content">
+            <div class="actions">
+                <a href="{% url 'issue_detail' latest_weekly_issue.issue.pk %}">Browse this issue</a>
+                <a href="{% url 'issue_list' %}">Other issues</a>
+            </div>
+            <div class="issue-info">
+                <p>{{ latest_weekly_issue.issue.title }}</p>
+                <p>Issue: {{ latest_weekly_issue.issue.pk }}</p>
+            </div>
+            <div class="latest-articles">
+                {% for article in latest_weekly_issue.articles %}
+                    <div class="article">
+                        <h3>
+                            <a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a>
+                        </h3>
+                        <p>{{ article.subtitle }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <h2>Monthly</h2>
+    <div class="issue">
+        <div class="issue-cover"></div>
+        <div class="issue-content">
+            <div class="actions">
+                <a href="{% url 'issue_detail' latest_monthly_issue.issue.pk %}">Browse this issue</a>
+                <a href="{% url 'issue_list' %}">Other issues</a>
+            </div>
+            <div class="issue-info">
+                <p>{{ latest_monthly_issue.issue.title }}</p>
+                <p>Issue: {{ latest_monthly_issue.issue.pk }}</p>
+            </div>
+            <div class="latest-articles">
+                {% for article in latest_monthly_issue.articles %}
+                    <div class="article">
+                        <h3>
+                            <a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a>
+                        </h3>
+                        <p>{{ article.subtitle }}</p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

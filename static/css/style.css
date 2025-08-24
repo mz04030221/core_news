@@ -183,7 +183,7 @@ button:hover {
 /* HOME */
 .issue {
   display: flex;
-  margin: 20px 0;
+  margin: 20px 0 50px 0;
   height: 250px;
 }
 
@@ -219,7 +219,7 @@ button:hover {
   text-transform: uppercase;
 }
 
-.issue .featured-articles {
+.issue .latest-articles {
   display: flex;
   gap: 40px;
 }
