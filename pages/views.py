@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+
 from issues.models import Issue
 from articles.models import Article
 
@@ -21,7 +22,7 @@ class HomePageView(TemplateView):
             return {}
 
         articles = Article.objects.filter(issue=latest_issue).order_by("pk").reverse()
-        latest_articles = articles[:2] if len(articles) >= 3 else articles
+        latest_articles = articles[:3] if len(articles) >= 4 else articles
 
         return {
             "issue": latest_issue,
@@ -31,3 +32,7 @@ class HomePageView(TemplateView):
 
 class AboutPageView(TemplateView):
     template_name = "pages/about.html"
+
+
+class ProfilePageView(TemplateView):
+    template_name = "pages/profile.html"
