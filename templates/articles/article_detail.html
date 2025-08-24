@@ -6,7 +6,7 @@
     <div class="article-detail-container">
         <div class="article-detail-heading">
             <h2>{{ object.title }}</h2>
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and object.author.pk == request.user.pk %}
                 <div class="article-actions">
                     <a href="{% url 'article_delete' article.pk %}">Delete</a>
                     <a href="{% url 'article_edit' article.pk %}">Edit</a>

@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from articles.models import Article
 
 
@@ -13,7 +14,7 @@ class ArticleDetailView(DetailView):
     template_name = "articles/article_detail.html"
 
 
-class ArticleCreateView(CreateView):
+class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     template_name = "articles/article_new.html"
     fields = (
@@ -28,7 +29,7 @@ class ArticleCreateView(CreateView):
         return super().form_valid(form)
 
 
-class ArticleUpdateView(UpdateView):
+class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     template_name = "articles/article_edit.html"
     fields = (
@@ -38,7 +39,15 @@ class ArticleUpdateView(UpdateView):
         "issue",
     )
 
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
 
-class ArticleDeleteView(DetailView):
+
+class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Article
     template_name = "articles/article_delete.html"
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user

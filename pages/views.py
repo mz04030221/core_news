@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from issues.models import Issue
 from articles.models import Article
@@ -34,7 +35,7 @@ class AboutPageView(TemplateView):
     template_name = "pages/about.html"
 
 
-class ProfilePageView(TemplateView):
+class ProfilePageView(LoginRequiredMixin, TemplateView):
     template_name = "pages/profile.html"
 
     def get_context_data(self, *args, **kwargs):

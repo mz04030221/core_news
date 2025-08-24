@@ -8,7 +8,7 @@
         <div class="issue-detail-info">
             <div class="issue-detail-heading">
                 <h2>{{ object.title }}</h2>
-                {% if user.is_authenticated and user.role == "EDITOR" %}
+                {% if user.is_authenticated and user.pk == request.user.pk %}
                     <div class="issue-actions">
                         <a href="{% url 'issue_delete' issue.pk %}">Delete</a>
                         <a href="{% url 'issue_edit' issue.pk %}">Edit</a>

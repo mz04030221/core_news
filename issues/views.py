@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 
 from issues.models import Issue
@@ -21,7 +22,7 @@ class IssueDetailView(DetailView):
         return context
 
 
-class IssueUpdateView(UpdateView):
+class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Issue
     fields = (
         "title",
@@ -29,14 +30,22 @@ class IssueUpdateView(UpdateView):
     )
     template_name = "issues/issue_edit.html"
 
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
 
-class IssueDeleteView(DeleteView):
+
+class IssueDeleteView(LoginRequiredMixin, DeleteView):
     model = Issue
     template_name = "issues/issue_delete.html"
     success_url = reverse_lazy("issue_list")
 
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
 
-class IssueCreateView(CreateView):
+
+class IssueCreateView(LoginRequiredMixin, CreateView):
     model = Issue
     template_name = "issues/issue_new.html"
     fields = (
