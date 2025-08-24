@@ -4,11 +4,17 @@
 {% endblock title %}
 {% block content %}
     <h2>Articles</h2>
-    {% for article in article_list %}
-        <h3>
-            <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-        </h3>
-        <p>{{ article.subtitle }}</p>
-        <p>Author: {{ article.author }} | Issue: {{ article.issue.title }}</p>
-    {% endfor %}
+    <div class="article-list-container">
+        {% for article in article_list reversed %}
+            <div class="article-list-item">
+                <h3>
+                    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+                </h3>
+                <p>{{ article.subtitle }}</p>
+                <p class="article-info">
+                    Author: {{ article.author.first_name }} {{ article.author.last_name }} — Issue: <a href="{% url 'issue_detail' article.issue.pk %}">{{ article.issue.title }} ({{ article.issue.pk }})</a>
+                </p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

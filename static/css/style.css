@@ -312,20 +312,23 @@ form button {
   opacity: 50%;
 }
 
-.issue-detail-container .issue-detail-heading {
+.issue-detail-container .issue-detail-heading,
+.article-detail-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.issue-detail-heading .issue-actions a {
+.issue-detail-heading .issue-actions a,
+.article-detail-heading a {
   color: var(--color-foreground);
   text-decoration: none;
   text-transform: uppercase;
   margin-left: 20px;
 }
 
-.issue-detail-heading .issue-actions a:hover {
+.issue-detail-heading .issue-actions a:hover,
+.article-detail-heading a:hover {
   text-decoration: underline;
 }
 
@@ -336,4 +339,49 @@ form button {
 
 .issue-delete-form .issue-detail-container {
   padding: 20px 0;
+}
+
+/* Article List */
+.article-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.article-info {
+  font-family: "Playwrite NZ";
+  font-size: 0.8rem;
+  opacity: 50%;
+  margin: 0;
+}
+
+.article-info a {
+  text-decoration: none;
+  color: var(--color-foreground);
+}
+
+.article-info a:hover {
+  text-decoration: underline;
+}
+
+/* Article Detail */
+.article-detail-container > * {
+  margin-bottom: 15px;
+}
+.article-detail-heading h2 {
+  margin: 0;
+}
+
+.article-subtitle {
+  font-family: "Playwrite NZ";
+  font-size: 1rem;
+}
+
+.article-body {
+  margin-top: 30px;
+}
+
+.article-body p {
+  margin-top: 20px;
 }

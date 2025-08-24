@@ -24,3 +24,6 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse("article_detail", kwargs={"pk": self.pk})
+
+    def get_split_body(self):
+        return self.body.split("\r\n")
