@@ -93,12 +93,6 @@ nav .user {
   transform: translate(-50%);
 }
 
-nav .divider {
-  color: var(--color-foreground);
-  opacity: 25%;
-  margin: 0 10px;
-}
-
 footer {
   padding: 20px 0;
   border-top: 5px solid var(--color-foreground);
@@ -178,6 +172,12 @@ button:hover {
   background-color: var(--color-foreground);
   opacity: 25%;
   flex-shrink: 0;
+}
+
+.separator {
+  color: var(--color-foreground);
+  opacity: 25%;
+  margin: 0 10px;
 }
 
 /* HOME */
@@ -384,4 +384,67 @@ form button {
 
 .article-body p {
   margin-top: 20px;
+}
+
+/* Profile */
+.profile-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-heading h2 {
+  margin: 0;
+}
+
+.profile-heading .profile-actions a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: 30px;
+}
+
+.profile-heading .profile-actions a:hover {
+  text-decoration: underline;
+}
+
+.profile-heading .profile-name {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.profile-heading .username {
+  font-size: 1.2rem;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.profile-info .info-type {
+  font-weight: 600;
+}
+
+.article-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article-heading a {
+  text-decoration: none;
+  color: var(--color-foreground);
+  text-transform: uppercase;
+  margin-right: 15px;
+}
+
+.article-heading a:hover {
+  text-decoration: underline;
+}
+
+.article-heading h3 a {
+  text-transform: capitalize;
 }

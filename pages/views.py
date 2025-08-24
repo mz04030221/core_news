@@ -36,3 +36,8 @@ class AboutPageView(TemplateView):
 
 class ProfilePageView(TemplateView):
     template_name = "pages/profile.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProfilePageView, self).get_context_data(*args, **kwargs)
+        context["articles"] = Article.objects.filter(author=self.request.user)
+        return context
