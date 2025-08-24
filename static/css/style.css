@@ -448,3 +448,15 @@ form button {
 .article-heading h3 a {
   text-transform: capitalize;
 }
+
+.article-delete-form {
+  padding: 0;
+}
+
+.article-delete-form h3 {
+  margin-top: 20px;
+}
+
+.article-delete-form button {
+  margin-top: 20px;
+}
