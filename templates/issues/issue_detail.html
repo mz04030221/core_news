@@ -20,4 +20,15 @@
             <p>Editor: {{ object.editor.first_name }} {{ object.editor.last_name }}</p>
         </div>
     </div>
+    <div class="article-list-container">
+        {% for article in articles %}
+            <div class="article-list-item">
+                <h3>
+                    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+                </h3>
+                <p>{{ article.subtitle }}</p>
+                <p class="article-info">Author: {{ article.author.first_name }} {{ article.author.last_name }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

@@ -3,6 +3,7 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 
 from issues.models import Issue
+from articles.models import Article
 
 
 class IssueListView(ListView):
@@ -13,6 +14,11 @@ class IssueListView(ListView):
 class IssueDetailView(DetailView):
     model = Issue
     template_name = "issues/issue_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["articles"] = Article.objects.filter(issue__pk=self.kwargs["pk"])
+        return context
 
 
 class IssueUpdateView(UpdateView):
