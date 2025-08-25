@@ -369,6 +369,10 @@ form button {
 .article-detail-container > * {
   margin-bottom: 15px;
 }
+
+.article-detail-container .field-container {
+  gap: 0;
+}
 .article-detail-heading h2 {
   margin: 0;
 }
@@ -384,6 +388,23 @@ form button {
 
 .article-body p {
   margin-top: 20px;
+}
+
+.comment-container .comment-author {
+  display: flex;
+  gap: 5px;
+}
+
+.comment-container .comment-author-name {
+  font-weight: 600;
+}
+
+.comment-container .comment-author-username {
+  opacity: 50%;
+}
+
+.comment-container .comment-body {
+  padding: 0 15px;
 }
 
 /* Profile */

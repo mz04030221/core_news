@@ -23,5 +23,35 @@
         <div class="article-body">
             {% for paragraph in object.get_split_body %}<p>{{ paragraph }}</p>{% endfor %}
         </div>
+        <hr>
+        <h4>Comments</h4>
+        {% if user.is_authenticated %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="non-field-errors">{{ form.non_field_errors }}</div>
+                {% for field in form.visible_fields %}
+                    <div class="field-container">
+                        {{ field }}
+                        <div class="field-error-text">{{ field.errors }}</div>
+                        <div class="field-help-text">{{ field.help_text }}</div>
+                    </div>
+                {% endfor %}
+                <button type="submit">Submit</button>
+            </form>
+        {% else %}
+            <p>
+                Please <a href="{% url 'login' %}">LOGIN</a> or <a href="{% url 'signup' %}">SIGN UP</a> before you can comment.
+            </p>
+        {% endif %}
+        {% for comment in article.comment_set.all %}
+            <hr>
+            <div class="comment-container">
+                <div class="comment-author">
+                    <div class="comment-author-name">{{ comment.author.first_name }} {{ comment.author.last_name }}</div>
+                    <div class="comment-author-username">({{ comment.author }})</div>
+                </div>
+                <div class="comment-body">{{ comment }}</div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock content %}
