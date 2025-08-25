@@ -11,6 +11,7 @@ class Issue(models.Model):
     ]
 
     title = models.CharField(max_length=250)
+    cover = models.ImageField(upload_to="images/")
     edition = models.CharField(
         max_length=250,
         choices=EDITION_CHOICES,

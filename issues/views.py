@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 
 from issues.models import Issue
+from issues.forms import IssueForm
 from articles.models import Article
 
 
@@ -24,15 +25,12 @@ class IssueDetailView(DetailView):
 
 class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Issue
-    fields = (
-        "title",
-        "edition",
-    )
+    form_class = IssueForm
     template_name = "issues/issue_edit.html"
 
     def test_func(self):
         obj = self.get_object()
-        return obj.author == self.request.user
+        return obj.editor == self.request.user
 
 
 class IssueDeleteView(LoginRequiredMixin, DeleteView):
@@ -47,11 +45,8 @@ class IssueDeleteView(LoginRequiredMixin, DeleteView):
 
 class IssueCreateView(LoginRequiredMixin, CreateView):
     model = Issue
+    form_class = IssueForm
     template_name = "issues/issue_new.html"
-    fields = (
-        "title",
-        "edition",
-    )
 
     def form_valid(self, form):
         form.instance.editor = self.request.user

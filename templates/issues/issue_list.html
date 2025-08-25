@@ -7,7 +7,9 @@
     <div class="issue-list">
         {% for issue in issue_list reversed %}
             <div class="issue-list-item">
-                <div class="issue-cover"></div>
+                <div class="issue-cover">
+                    <img src="{{ issue.cover.url }}" alt="{{ issue.title }}">
+                </div>
                 <h3>
                     <a href="{{ issue.get_absolute_url }}">{{ issue.title }}</a>
                 </h3>

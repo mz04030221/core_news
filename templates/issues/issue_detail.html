@@ -4,11 +4,13 @@
 {% endblock title %}
 {% block content %}
     <div class="issue-detail-container">
-        <div class="issue-cover"></div>
+        <div class="issue-cover">
+            <img src="{{ object.cover.url }}" alt="{{ object.title }}">
+        </div>
         <div class="issue-detail-info">
             <div class="issue-detail-heading">
                 <h2>{{ object.title }}</h2>
-                {% if user.is_authenticated and user.pk == request.user.pk %}
+                {% if user.is_authenticated and object.editor.pk == request.user.pk %}
                     <div class="issue-actions">
                         <a href="{% url 'issue_delete' issue.pk %}">Delete</a>
                         <a href="{% url 'issue_edit' issue.pk %}">Edit</a>

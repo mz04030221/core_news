@@ -4,7 +4,7 @@
 {% endblock title %}
 {% block content %}
     <h2>Create new issue</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="non-field-errors">{{ form.non_field_errors }}</div>
         {% for field in form.visible_fields %}
